@@ -81,6 +81,3 @@ console.log(array(''));
 
 
 // 4
-
-
-// 5
