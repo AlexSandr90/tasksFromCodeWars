@@ -104,7 +104,49 @@ console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"
 // scramble('katas', 'steak') ==> False
 
 
-const scramble = (inputStr, etalon) => {
+// const scramble = (inputStr, etalon) => {
+//
+//     for (let i = 0; i < )
+// }
+//
 
-    for (let i = 0; i < )
-}
+//Regular Ball Super Ball
+// Create a class Ball.
+//
+// Ball objects should accept one argument for "ball type" when instantiated.
+//
+// If no arguments are given, ball objects should instantiate with a "ball type" of "regular."
+//
+// ball1 = new Ball();
+// ball2 = new Ball("super");
+//
+// ball1.ballType     //=> "regular"
+// ball2.ballType     //=> "super"
+
+// class Ball {
+//     constructor(ballType) {
+//         this.ballType = ballType;
+//     }
+//
+//     get ballType() {
+//         return this._type;
+//     }
+//
+//     set ballType(value) {
+//         if (value === undefined) {
+//             this._type = 'regular';
+//             return;
+//         }
+//
+//         this._type = value;
+//     }
+// }
+
+const Ball = function(ballType) {
+    this.ballType = ballType || 'regular';
+};
+
+const ball = new Ball();
+console.log(ball.ballType);
+const ball2 = new Ball('super');
+console.log(ball2.ballType);
