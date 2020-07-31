@@ -88,7 +88,7 @@ const dirReduc1 = arr => {
 
 };
 
-console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
 
 
 //Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
@@ -123,30 +123,107 @@ console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"
 // ball1.ballType     //=> "regular"
 // ball2.ballType     //=> "super"
 
-// class Ball {
-//     constructor(ballType) {
-//         this.ballType = ballType;
-//     }
-//
-//     get ballType() {
-//         return this._type;
-//     }
-//
-//     set ballType(value) {
-//         if (value === undefined) {
-//             this._type = 'regular';
-//             return;
-//         }
-//
-//         this._type = value;
-//     }
-// }
+class Ball {
+    constructor(ballType) {
+        this.ballType = ballType;
+    }
 
-const Ball = function(ballType) {
+    get ballType() {
+        return this._type;
+    }
+
+    set ballType(value) {
+        if (value === undefined) {
+            this._type = 'regular';
+            return;
+        }
+
+        this._type = value;
+    }
+}
+
+const Ball1 = function(ballType) {
     this.ballType = ballType || 'regular';
 };
 
-const ball = new Ball();
-console.log(ball.ballType);
-const ball2 = new Ball('super');
-console.log(ball2.ballType);
+// const ball = new Ball();
+// console.log(ball.ballType);
+// const ball2 = new Ball('super');
+// console.log(ball2.ballType);
+
+
+
+
+//In this Kata, you will be given an integer array and your task is to return the
+// sum of elements occupying prime-numbered indices.
+// The first element of the array is at index 0.
+// Good luck!
+// If you like this Kata, try:
+// Dominant primes. It takes this idea a step further.
+// Consonant value
+// FUNDAMENTALS
+
+const isPrime = num => {
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0)  return false;
+    }
+    return true;
+};
+
+const total = arr => {
+    let sum = 0;
+    for (let i = 2; i < arr.length; i++) {
+        if (isPrime(i)) {
+            sum += arr[i];
+        }
+    }
+    return sum;
+};
+
+
+
+//Given an array, find the integer that appears an odd number of times.
+// There will always be only one integer that appears an odd number of times.
+
+
+const findOrderedCount = string => {
+    const res = [];
+    const elementOfString = {};
+
+    for (let i = 0; i < string.length; i++) {
+        if (elementOfString[string[i]] === undefined) {
+            elementOfString[string[i]] = i;
+            res.push([string[i], 1]);
+        } else {
+            res[elementOfString[string[i]]][1]++;
+        }
+    }
+
+    return res;
+};
+
+const findOdd = arr => {
+    const res = [];
+    const el = {};
+    let result = '';
+
+    for (let i = 0; i < arr.length; i++) {
+        if (el[arr[i]] === undefined) {
+            el[arr[i]] = i;
+            res.push(arr[i], 1);
+        } else {
+            res[el[arr[i]]][1]++;
+        }
+    }
+
+    for (let j = 0; j < res[j]; j++) {
+        if (res[j][1] % 2 !==0) {
+            result = res[j][0];
+        }
+    }
+
+    return result;
+};
+
+
+console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]));
