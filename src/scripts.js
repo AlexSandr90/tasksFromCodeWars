@@ -203,16 +203,16 @@ const findOrderedCount = string => {
 };
 
 const findOdd = arr => {
-    const res = [];
-    const el = {};
-    let result = '';
+    const result = [];
+    const elementOfString = {};
+    let res = '';
 
-    for (let i = 0; i < arr.length; i++) {
-        if (el[arr[i]] === undefined) {
-            el[arr[i]] = i;
-            res.push(arr[i], 1);
+    for (let i = 0; i < string.length; i++) {
+        if (elementOfString[string[i]] === undefined) {
+            elementOfString[string[i]] = i;
+            res.push([string[i], 1]);
         } else {
-            res[el[arr[i]]][1]++;
+            res[elementOfString[string[i]]][1]++;
         }
     }
 
@@ -222,7 +222,8 @@ const findOdd = arr => {
         }
     }
 
-    return result;
+    // return result;
+    return res;
 };
 
 
